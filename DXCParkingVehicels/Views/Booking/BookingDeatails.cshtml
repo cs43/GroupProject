@@ -1,0 +1,94 @@
+﻿@model IEnumerable<dxcBookVehicleParkingService.Models.AreaInfo>
+
+@{
+    ViewBag.Title = "BookingDeatails";
+}
+
+<h2>BookingDetails</h2>
+@foreach (var item in Model)
+{
+    <h1>Area:@item.Area   Vehicle:CAR</h1>
+    for (int i = 0; i < item.CarBookings; i++)
+    {
+        <button type="button" class="btn btn-success"><a href="#" class="btn btn-success btn-lg">
+    <span class="glyphicon glyphicon-print"></span> Print
+</a></button>
+    }
+
+    <h1>Area:@item.Area   Vehicle:BIKE</h1>
+    for (int i = 0; i < item.BikeBookings; i++)
+    {
+        <button type="button" class="btn btn-primary">@i</button>
+    }
+
+
+}
+<h1>Area</h1>
+
+
+
+
+
+
+
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarBookings)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeBookings)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarBookings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeBookings)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

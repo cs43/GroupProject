@@ -1,0 +1,86 @@
+﻿@model IEnumerable<dxcBookVehicleParkingService.Models.AreaInfo>
+
+@{
+    ViewBag.Title = "BookingDeatails";
+}
+
+<h2>BookingDetails</h2>
+
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<style>
+    h1 {
+        color:chartreuse;
+        font-family:Cooper;
+    }
+    h2{
+        color:yellow;
+        font-family:Cooper;
+    }
+
+</style>
+
+
+
+@foreach (var item in Model)
+{
+   <h1>  Area:@item.Area </h1>
+<h2>  Vehicle:CAR</h2>
+    for (int i = 0; i < item.CarBookings; i++)
+    {
+        <a href="@Url.Action("BookSlot",new { Area = item.Area, type = "CAR", SlotId = i + 1 } )" class="btn btn-success">
+            <span class="fa fa-car" aria-hidden="true"></span>
+            <br />
+            BOOK
+        </a>
+
+    }
+    <br />
+    <br />
+
+    <h1>  Area:@item.Area </h1>
+    <h2>  Vehicle:BIKE</h2>
+    for (int i = 0; i < item.BikeBookings; i++)
+    {
+        <a href="@Url.Action("BookSlot", new { Area = item.Area, type = "BIKE", SlotId = i + 1 })" class="btn btn-danger">
+            <span class="fa fa-motorcycle" aria-hidden="true"></span>
+            <br />
+            BOOK
+        </a>
+    }
+
+    <br/>
+    <br/>
+    <br/>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
